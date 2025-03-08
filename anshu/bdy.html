@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Anshu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        body {
+            font-family: 'Pacifico', cursive;
+            background-color: #fce4ec;
+            color: #4a148c;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 5rem;
+            color: #880e4f;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .heart {
+            color: #d50000;
+            font-size: 70px;
+            animation: beat 1s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .notes {
+            font-size: 2rem;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+            animation: slideUp 2s ease-in-out;
+            cursor: pointer;
+        }
+        .notes:hover {
+            background: #ffebee;
+            transform: scale(1.05);
+            transition: 0.3s;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .scrolling-text {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            margin-top: 30px;
+        }
+        .scrolling-text div {
+            display: inline-block;
+            font-size: 2rem;
+            color: #6a1b9a;
+            animation: scrollLeft 15s linear infinite;
+        }
+        @keyframes scrollLeft {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+        .hidden {
+            display: none;
+        }
+        .cartoon {
+            font-size: 100px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: pink;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function revealNote(noteId) {
+            var note = document.getElementById(noteId);
+            note.classList.toggle("hidden");
+        }
+        function toggleMusic() {
+            var audio = document.getElementById("bg-music");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Happy Birthday, Anshu! 🎂</h1>
+        <h2>Born on: March 9, 2005 🎈</h2>
+        <div class="heart">❤️❤️❤️</div>
+        
+        <div class="cartoon">😊🎈</div>
+        
+        <div class="notes" onclick="revealNote('note1')">Click to reveal a memory 📜</div>
+        <div id="note1" class="notes hidden">First Meet: <strong>2016 in School</strong> - A moment I'll cherish forever! ✨</div>
+        
+        <div class="notes" onclick="revealNote('note2')">Click for another surprise 💕</div>
+        <div id="note2" class="notes hidden">"You were my crush for 3 years, and then we became something even more beautiful - soulmates." 💖</div>
+        
+        <div class="notes" onclick="revealNote('note3')">One more sweet memory! 🎀</div>
+        <div id="note3" class="notes hidden">"Every moment with you feels like a dream, and I never want to wake up." 🌹</div>
+        
+        <div class="notes" onclick="revealNote('note4')">Click to reveal 4 magical years! 💞</div>
+        <div id="note4" class="notes hidden">"Four memorable years with you have been filled with love, laughter, and beautiful memories. Here's to forever, my love!" 💕</div>
+        
+        <div class="scrolling-text">
+            <div>"From the moment I saw you, my heart whispered 'That's the one'... Happy Birthday, my love!" 💞</div>
+            <div>"Every second with you is like a beautiful melody, playing the song of my heart." 🎶</div>
+            <div>"You are the reason my world is filled with love and joy. Happy Birthday, my forever love!" 💗</div>
+            <div>"No words can express how much you mean to me. My love for you grows with every heartbeat." ❤️</div>
+            <div>"You are my today, my tomorrow, and my forever. Happy Birthday, my soulmate!" 💕</div>
+        </div>
+    </div>
+    <button class="music-btn" onclick="toggleMusic()">🎶 Play/Pause Music</button>
+    <audio id="bg-music" loop>
+        <source src="your-music-file.mp3" type="audio/mp3">
+    </audio>
+</body>
+</html>
